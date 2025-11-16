@@ -1,4 +1,4 @@
-use <wall cap.scad>;
+use <wall-cap.scad>;
 
 // Measurements:
 wall = 30.3;
