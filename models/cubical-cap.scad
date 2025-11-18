@@ -14,7 +14,7 @@
 // Measured:
 topper_width    = 78.70; // mm
 topper_height   =  9.70;
-indent_width    = 11.50;
+indent_width    = 11.50 - 8; // for easier installation
 indent_height   =  8.05;
 overhang_width  =  3.00;
 overhang_height =  4.40;
@@ -23,9 +23,9 @@ overhang_height =  4.40;
 $fn = 100;
 
 // Desired:
-thickness = 4.0;
+thickness = 5.0;
 drop = topper_width;
-hook_radius = 12.0;
+hook_radius = 20.0;
 length = 8.0;
 
 module wall(drop=drop) {
