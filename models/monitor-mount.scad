@@ -1,23 +1,24 @@
 // Thin sign mount for the top of my Dell monitor.
 
 monitor_depth = 25.0; // mm
-sign_depth    =  5.1 + 0.1;
-drop          =  8.0;
+sign_depth    =  5.1;
+front_drop    =  8.0;
+back_drop     = 12.0;
 
-width = 1.618 * monitor_depth; // golden ratio, why not?
+width = monitor_depth;
 
-front_height = drop;
+front_height = front_drop;
 back_height  = 2 * front_height;
 thickness    = 4.0;
 
 module monitor_clip() {
   linear_extrude(thickness)
     square([width, monitor_depth + 2*thickness]);
-  translate([0, 0, -drop])
-    linear_extrude(drop)
+  translate([0, 0, -front_drop])
+    linear_extrude(front_drop)
     square([width, thickness]);
-  translate([0, monitor_depth + thickness, -drop])
-    linear_extrude(drop)
+  translate([0, monitor_depth + thickness, -back_drop])
+    linear_extrude(back_drop)
     square([width, thickness]);
 }
 
@@ -29,4 +30,4 @@ module sign_holder() {
     square([width, thickness]);
 }
 monitor_clip();
-translate([0, 0, thickness]) sign_holder();
+translate([0, monitor_depth/2 - sign_depth/2, thickness]) sign_holder();
